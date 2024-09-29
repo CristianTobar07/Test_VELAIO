@@ -1,3 +1,67 @@
-<p>
-  list-task works!
-</p>
+<section>
+  <div class="container_title_filter">
+    <h1>Listado de tareas</h1>
+    <div class="container_buttons_filter">
+      <button
+        (click)="changeSection(1)"
+        [ngClass]="{ button_selected: sectionSelected === 1 }"
+      >
+        Todas
+      </button>
+      <button
+        (click)="changeSection(2)"
+        [ngClass]="{ button_selected: sectionSelected === 2 }"
+      >
+        Completadas
+      </button>
+      <button
+        (click)="changeSection(3)"
+        [ngClass]="{ button_selected: sectionSelected === 3 }"
+      >
+        Pendientes
+      </button>
+    </div>
+  </div>
+
+  <div class="container_list_task">
+    <div *ngIf="dataTask.length === 0" class="no_tasks">No hay tareas</div>
+
+    <div *ngFor="let task of dataTask" class="task_card">
+      <h3>{{ task.taskName }}</h3>
+      <div class="paragrap_date">
+        <strong>Fecha de entrega: </strong>{{ task.taskDate }}
+      </div>
+
+      <hr />
+
+      <div class="paragrap_date">
+        <strong>Responsables</strong>
+      </div>
+
+      <hr />
+
+      <div class="list_people">
+        <ul *ngFor="let person of task.people">
+          <li>
+            <p>
+              <strong>Nombre: </strong> <span> {{ person.name }}</span>
+            </p>
+            <p>
+              <strong>Edad: </strong> <span> {{ person.age }}</span>
+            </p>
+
+            <div>
+              <h4>Habilidades</h4>
+              <div class="ul_skills">
+                <span *ngFor="let skill of person.skills">
+                  | {{ skill.skill }}
+                </span>
+                |
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

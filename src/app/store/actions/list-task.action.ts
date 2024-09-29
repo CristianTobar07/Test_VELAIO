@@ -6,8 +6,12 @@ export const getDataTask = createAction(
   props<{ data: Task[] }>()
 );
 
-
 export const setDataTask = createAction(
   '[Data SetDataTask] setDataTask',
   props<{ data: FormTask }>()
+);
+
+export const setChangeSection = createAction(
+  '[Data SetChangeSection] setChangeSection',
+  props<{ id: number }>()
 );

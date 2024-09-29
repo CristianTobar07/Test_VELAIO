@@ -1,0 +1,97 @@
+section {
+  .container_title_filter {
+    display: flex;
+    background-color: var(--primary-color);
+    padding-inline: 5%;
+    padding-block: 10px;
+
+    h1 {
+      padding: 0;
+      margin: 0;
+      color: var(--neutral-color);
+      text-align: center;
+      padding-block: 10px;
+      width: 45%;
+    }
+
+    .container_buttons_filter {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-column-gap: 20px;
+
+      .button_selected {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .container_list_task {
+    margin-top: 15px;
+    width: 100%;
+
+    .task_card {
+      padding: 10px;
+      box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.25);
+      margin-bottom: 10px;
+
+      h3 {
+        width: 100%;
+        padding-block: 5px;
+        background-color: var(--primary-color);
+        color: var(--neutral-color);
+        text-align: center;
+        margin: 0;
+      }
+
+      .paragrap_date {
+        width: 100%;
+        padding-top: 5px;
+        text-align: center;
+      }
+
+      .list_people {
+        padding-inline: 5%;
+        display: grid;
+        width: 90%;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-column-gap: 20px;
+
+        h4 {
+          margin: 0;
+        }
+
+        ul {
+          padding: 0;
+          margin: 0;
+          li {
+            list-style: none;
+          }
+        }
+
+        .ul_skills {
+          padding: 10px 5px;
+          background-color: var(--secondary-color);
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  section {
+    padding-inline: 10%;
+
+    .container_title_filter {
+      h1 {
+        width: 100%;
+      }
+    }
+
+    .container_title_filter {
+      display: block;
+    }
+  }
+}

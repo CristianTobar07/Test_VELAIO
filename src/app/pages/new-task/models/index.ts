@@ -16,4 +16,5 @@ export interface Skill {
 
 export interface Task extends FormTask {
   id: string;
+  status: number;
 }

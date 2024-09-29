@@ -17,5 +17,7 @@ export interface InitialStateErrorMessage {
 //List task
 
 export interface InitialStateListTask {
+  dataTaskRef: Task[];
   dataTask: Task[];
+  sectionSelected: number;
 }
