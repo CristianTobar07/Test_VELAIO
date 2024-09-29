@@ -1,29 +1,72 @@
 <section>
   <h1>Crear nueva tarea</h1>
-  <form action="">
-    
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <label>Nombre de la tarea</label>
-    <input type="text" />
+    <input type="text" formControlName="taskName" />
 
     <label>Fecha límite</label>
-    <input type="date" />
+    <input type="date" formControlName="taskDate" />
 
     <h3>Personas Asociadas</h3>
 
-    <label>Nombre completo</label>
-    <input type="text" />
+    <div formArrayName="people">
+      <div
+        *ngFor="let person of people.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <h3>Persona {{ i + 1 }}</h3>
+        <label>Nombre completo</label>
+        <input type="text" formControlName="name" />
 
-    <label>Edad</label>
-    <input type="number" />
+        <label>Edad</label>
+        <input type="number" formControlName="age" />
 
-    <h4>Habilidades</h4>
+        <h4>Habilidades</h4>
 
-    <div class="container_skills">
-      <input type="text" />
+        <div formArrayName="skills">
+          <div
+            *ngFor="let skill of getSkills(i).controls; let j = index"
+            [formGroupName]="j"
+          >
+            <label for="skill">Habilidad {{ j + 1 }}</label>
+            <div class="container_skills">
+              <input formControlName="skill" type="text" />
 
-      <ion-icon name="add-outline" class="icon_skills"></ion-icon>
+              <ion-icon
+                (click)="removeSkill(i, j)"
+                name="trash-outline"
+                class="icon_skills"
+                [ngClass]="{ container_disabled: getSkills(i).length === 1 }"
+              ></ion-icon>
+            </div>
+          </div>
+          <button type="button" class="buttons_form" (click)="addSkill(i)">
+            Agregar Habilidad
+          </button>
+        </div>
 
-      <ion-icon name="trash-outline" class="icon_skills"></ion-icon>
+        <button
+          type="button"
+          class="buttons_form"
+          (click)="removePerson(i)"
+          [ngClass]="{ container_disabled: people.length === 1 }"
+        >
+          Eliminar Persona
+        </button>
+      </div>
+
+      <button
+        type="button"
+        class="buttons_form"
+        (click)="addPerson()"
+        [ngClass]="{ container_disabled: !people.at(people.length - 1).valid }"
+      >
+        Agregar Persona
+      </button>
     </div>
+
+    <button class="buttons_form" type="submit">
+      <strong> Guardar tarea </strong>
+    </button>
   </form>
 </section>

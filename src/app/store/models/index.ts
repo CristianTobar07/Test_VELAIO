@@ -1,5 +1,7 @@
 // Loading component
 
+import { Task } from '../../pages/new-task/models';
+
 export interface InitialStateLoadinComponent {
   isLoading: boolean;
 }
@@ -15,5 +17,5 @@ export interface InitialStateErrorMessage {
 //List task
 
 export interface InitialStateListTask {
-  loading: boolean;
+  dataTask: Task[];
 }

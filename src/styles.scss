@@ -99,3 +99,8 @@ button {
     opacity: 0.5;
   }
 }
+
+.container_disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

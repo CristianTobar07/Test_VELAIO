@@ -1,10 +1,15 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideZoneChangeDetection,
+  isDevMode,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideStore } from '@ngrx/store';
 import { ROOT_REDUCER } from './store/app.state';
 import { provideClientHydration } from '@angular/platform-browser';
 import { routes } from './app.routes';
 import { provideIonicAngular } from '@ionic/angular/standalone';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,5 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideStore(ROOT_REDUCER),
     provideIonicAngular({}),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };
