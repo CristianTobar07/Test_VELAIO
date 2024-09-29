@@ -1,0 +1,66 @@
+h1 {
+  padding: 0;
+  margin: 0;
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
+  text-align: center;
+  padding-block: 10px;
+}
+
+form {
+  margin-top: 10px;
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  h3,
+  h4 {
+    padding: 5px 0px 10px 0px;
+    margin: 0;
+  }
+
+  .container_skills {
+    display: flex;
+
+    input {
+      width: 80%;
+      margin: 0;
+    }
+
+    .icon_skills {
+      background-color: var(--primary-color);
+      margin-left: 5px;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      color: var(--neutral-color);
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  section {
+    padding-inline: 10%;
+
+    form {
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  section {
+    width: 100%;
+
+    form {
+      input {
+        width: 80%;
+      }
+    }
+  }
+}

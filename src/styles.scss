@@ -29,6 +29,11 @@ p {
   color: var(--primary-color);
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
 /* Scroll */
 
 /* width */
@@ -48,4 +53,49 @@ p {
   border: 3px solid transparent;
   border-radius: 100px;
   background-color: var(--primary-color);
+}
+
+/* icons */
+ion-icon {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+ion-icon:active {
+  opacity: 0.5;
+}
+
+// Inputs
+
+label {
+  color: var(--secondary-color);
+  font-weight: 300;
+}
+
+input {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  padding: 7px 15px;
+  color: var(--primary-color);
+  outline-color: var(--secondary-color);
+  box-sizing: border-box;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  border: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+  padding: 7px 15px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+
+  &:active {
+    opacity: 0.5;
+  }
 }

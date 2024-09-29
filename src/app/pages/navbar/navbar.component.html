@@ -1,0 +1,29 @@
+<div class="container-body">
+  <section class="container-add-product">
+    <div
+      class="button-count"
+      [routerLink]="['./listado-tareas']"
+      [routerLinkActive]="'button-count-active'"
+    >
+      <div class="container-name-button">
+        <span>Listado de tareas</span>
+      </div>
+    </div>
+    <div
+      class="button-count"
+      [routerLink]="['./crear-tarea']"
+      [routerLinkActive]="'button-count-active '"
+    >
+      <div class="container-name-button">
+        <span>Crear tarea</span>
+      </div>
+      <!-- <div *ngIf="totalProductInCartShop > 0" class="div">
+        {{ totalProductInCartShop }}
+      </div> -->
+    </div>
+  </section>
+
+  <section class="container-outlet">
+    <router-outlet></router-outlet>
+  </section>
+</div>
