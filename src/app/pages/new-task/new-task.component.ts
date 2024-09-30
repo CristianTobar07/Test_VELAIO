@@ -39,8 +39,8 @@ export class NewTaskComponent {
 
     const currentDate = new Date();
     const year = currentDate.getFullYear();
-    const month = ('0' + (currentDate.getMonth() + 1)).slice(-2); // Añade el cero inicial si es necesario
-    const day = ('0' + currentDate.getDate()).slice(-2); // Añade el cero inicial si es necesario
+    const month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + currentDate.getDate()).slice(-2);
 
     // Formato 'yyyy-MM-dd'
     this.currectDate = `${year}-${month}-${day}`;
