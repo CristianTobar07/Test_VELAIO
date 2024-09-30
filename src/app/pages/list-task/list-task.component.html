@@ -8,17 +8,19 @@
       >
         Todas
       </button>
+
       <button
         (click)="changeSection(2)"
         [ngClass]="{ button_selected: sectionSelected === 2 }"
       >
-        Completadas
+        Pendientes
       </button>
+
       <button
         (click)="changeSection(3)"
         [ngClass]="{ button_selected: sectionSelected === 3 }"
       >
-        Pendientes
+        Completadas
       </button>
     </div>
   </div>
@@ -61,6 +63,25 @@
             </div>
           </li>
         </ul>
+      </div>
+
+      <div class="container_complete_task">
+        <div>
+          <input
+            type="checkbox"
+            (change)="changeStatusTask(task.id, 1)"
+            [checked]="task.status === 1 ? true : false"
+          />
+          <label>Pendiente</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            (change)="changeStatusTask(task.id, 2)"
+            [checked]="task.status === 2 ? true : false"
+          />
+          <label>Completada</label>
+        </div>
       </div>
     </div>
   </div>

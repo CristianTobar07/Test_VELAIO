@@ -104,3 +104,10 @@ button {
   pointer-events: none;
   opacity: 0.5;
 }
+
+input[type="checkbox"] {
+  accent-color: var(--primary-color);
+  min-width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

@@ -15,3 +15,8 @@ export const setChangeSection = createAction(
   '[Data SetChangeSection] setChangeSection',
   props<{ id: number }>()
 );
+
+export const setChangeStatusTask = createAction(
+  '[Data SetChangeStatusTask] setChangeStatusTask',
+  props<{ idTask: string; statusTask: number }>()
+);

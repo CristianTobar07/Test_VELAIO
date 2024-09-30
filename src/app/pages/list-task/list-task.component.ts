@@ -6,7 +6,10 @@ import { Store } from '@ngrx/store';
 import { Task } from '../new-task/models';
 import { selectListTask } from '../../store/selectors';
 import { Subscription } from 'rxjs';
-import { setChangeSection } from '../../store/actions/list-task.action';
+import {
+  setChangeSection,
+  setChangeStatusTask,
+} from '../../store/actions/list-task.action';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 
 @Component({
@@ -40,6 +43,10 @@ export class ListTaskComponent implements OnInit, OnDestroy {
 
   changeSection(section: number) {
     this.store.dispatch(setChangeSection({ id: section }));
+  }
+
+  changeStatusTask(idTask: string, status: number) {
+    this.store.dispatch(setChangeStatusTask({ idTask, statusTask: status }));
   }
 
   ngOnDestroy(): void {

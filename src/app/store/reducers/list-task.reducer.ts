@@ -3,6 +3,7 @@ import { InitialStateListTask } from '../models';
 import {
   getDataTask,
   setChangeSection,
+  setChangeStatusTask,
   setDataTask,
 } from '../actions/list-task.action';
 import { uid } from 'uid';
@@ -41,14 +42,42 @@ export const listTaskReducer = createReducer(
 
     if (id === 1) {
       dataRef = [...state.dataTaskRef];
+    } else if (id === 2) {
+      dataRef = [...state.dataTaskRef].filter((item) => item.status === 1);
     } else {
-      dataRef = [...state.dataTaskRef].filter((item) => item.status === id);
+      dataRef = [...state.dataTaskRef].filter((item) => item.status === 2);
     }
 
     return {
       ...state,
       dataTask: dataRef,
       sectionSelected: id,
+    };
+  }),
+  on(setChangeStatusTask, (state, { idTask, statusTask }) => {
+    let dataRef: Task[] = [];
+    let newDataTask: Task[] = [];
+
+    dataRef = [...state.dataTaskRef].map((item) => {
+      if (item.id === idTask) {
+        return { ...item, status: statusTask };
+      }
+
+      return item;
+    });
+
+    if (statusTask === 2) {
+      newDataTask = [...dataRef].filter((item) => item.status === 1);
+    } else {
+      newDataTask = [...dataRef].filter((item) => item.status === 2);
+    }
+
+    saveDataStorage('tasks', dataRef);
+
+    return {
+      ...state,
+      dataTaskRef: dataRef,
+      dataTask: newDataTask,
     };
   })
 );
