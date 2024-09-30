@@ -23,6 +23,8 @@ import { setIsErrorMessage } from '../../store/actions/error-message.actions';
 })
 export class NewTaskComponent {
   taskForm: FormGroup;
+  dateRef = new Date();
+  currectDate: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +36,14 @@ export class NewTaskComponent {
       taskDate: ['', Validators.required],
       people: this.fb.array([this.createPersonForm()]),
     });
+
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = ('0' + (currentDate.getMonth() + 1)).slice(-2); // Añade el cero inicial si es necesario
+    const day = ('0' + currentDate.getDate()).slice(-2); // Añade el cero inicial si es necesario
+
+    // Formato 'yyyy-MM-dd'
+    this.currectDate = `${year}-${month}-${day}`;
   }
 
   get people(): FormArray {

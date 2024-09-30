@@ -56,6 +56,10 @@ form {
       input {
         width: 100%;
       }
+
+      .buttons_form{
+        width: 100%;
+      }
     }
   }
 }

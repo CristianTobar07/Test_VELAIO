@@ -5,7 +5,7 @@
     <input type="text" formControlName="taskName" />
 
     <label>Fecha límite</label>
-    <input type="date" formControlName="taskDate" />
+    <input type="date" formControlName="taskDate" min="{{ currectDate }}" />
 
     <h3>Personas Asociadas</h3>
 
@@ -70,7 +70,13 @@
       </button>
     </div>
 
-    <button class="buttons_form" type="submit">
+    <br />
+
+    <button
+      class="buttons_form"
+      [ngClass]="{ container_disabled: !taskForm.valid }"
+      type="submit"
+    >
       <strong> Guardar tarea </strong>
     </button>
   </form>
