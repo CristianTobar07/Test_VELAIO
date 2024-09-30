@@ -16,9 +16,14 @@
       >
         <h3>Persona {{ i + 1 }}</h3>
         <label>Nombre completo</label>
-        <input type="text" formControlName="name" />
+        <input
+          type="text"
+          formControlName="name"
+          minlength="5"
+          maxlength="50"
+        />
 
-        <label>Edad</label>
+        <label>Edad *Mayor a 18 años</label>
         <input type="number" formControlName="age" />
 
         <h4>Habilidades</h4>
