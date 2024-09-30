@@ -11,6 +11,9 @@ import { IonicModule } from '@ionic/angular';
 import { AppState } from '../../store/app.state';
 import { Store } from '@ngrx/store';
 import { setDataTask } from '../../store/actions/list-task.action';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { setIsErrorMessage } from '../../store/actions/error-message.actions';
 
 @Component({
   selector: 'app-new-task',
@@ -22,7 +25,12 @@ import { setDataTask } from '../../store/actions/list-task.action';
 export class NewTaskComponent {
   taskForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store<AppState>) {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<AppState>,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
     this.taskForm = this.fb.group({
       taskName: ['', Validators.required],
       taskDate: ['', Validators.required], // Campo para el nombre de la tarea
@@ -102,6 +110,15 @@ export class NewTaskComponent {
   onSubmit() {
     if (this.taskForm.valid) {
       this.store.dispatch(setDataTask({ data: this.taskForm.value }));
+
+      this.router.navigate(['/listado-tareas']);
+
+      this.store.dispatch(
+        setIsErrorMessage({
+          message: '¡Tarea registrada exitosamente!',
+          good: true,
+        })
+      );
     }
   }
 }

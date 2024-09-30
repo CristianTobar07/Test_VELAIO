@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
-import { InitialStateListTask } from '../models';
+import { InitialStateErrorMessage, InitialStateListTask } from '../models';
 
 // const selectLoadingComponent = (state: AppState) => state.loading;
 
@@ -9,16 +9,16 @@ import { InitialStateListTask } from '../models';
 //   (state: InitialStateLoadinComponent) => state
 // );
 
-// // Error Message
+// Error Message
 
-// const selectDataErrorMessage = (state: AppState) => state.errorMessagee;
+const selectDataErrorMessage = (state: AppState) => state.errorMessagee;
 
-// export const selectErrorMessage = createSelector(
-//   selectDataErrorMessage,
-//   (state: InitialStateErrorMessage) => state
-// );
+export const selectErrorMessage = createSelector(
+  selectDataErrorMessage,
+  (state: InitialStateErrorMessage) => state
+);
 
-// Products
+// List tasks
 
 const selectListTaskComponent = (state: AppState) => state.list_task;
 

@@ -1,0 +1,18 @@
+<div class="constainer-principal-flotante">
+  <div class="container-inter-flotante">
+    <div class="container-icon-alert-text">
+      <div class="container-icon-warning">
+        <ion-icon name="warning-outline" class="icon" *ngIf="!good"></ion-icon>
+        <ion-icon
+          name="checkmark-circle-outline"
+          class="icon"
+          *ngIf="good"
+        ></ion-icon>
+      </div>
+      <div class="container-text-message-alert">{{ message }}</div>
+    </div>
+    <div class="container-icon-close" (click)="closeErrorMessage()">
+      <div>x</div>
+    </div>
+  </div>
+</div>
